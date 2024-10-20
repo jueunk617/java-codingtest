@@ -2,12 +2,7 @@ import java.io.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        
-        String str = br.readLine();
-        
-        int a = (int)str.charAt(0);
-        
+        int a = System.in.read();
         System.out.print(a);
     }
 }
