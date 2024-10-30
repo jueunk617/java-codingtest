@@ -5,19 +5,15 @@ public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         
-        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
+        int chess[] = {1, 1, 2, 2, 2, 8};
         int arr[] = new int[6];
         
-        for(int i=0; i<6; i++){ // 배열에 입력받고 계산
-            arr[i] = Integer.parseInt(st.nextToken());
-            
-            if (i==0 || i==1) { arr[i] = 1 - arr[i]; }        
-            if (i==2 || i==3 || i==4) { arr[i] = 2 - arr[i]; }
-            if (i==5) { arr[i] = 8 - arr[i]; }
-        }
+        StringTokenizer st = new StringTokenizer(br.readLine(), " ");
         
-        for(int j=0; j<6; j++){ // 출력
-            System.out.print(arr[j] + " ");
+        for(int i=0; i<6; i++){
+            arr[i] = chess[i] - Integer.parseInt(st.nextToken());
+            
+            System.out.print(arr[i] + " ");
         }
     }
 }
