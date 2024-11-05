@@ -6,15 +6,25 @@ public class Main {
         
         int T = Integer.parseInt(br.readLine());
         
-        for(int i=0; i<T; i++){
+        int Q = 25;
+        int D = 10;
+        int N = 5;
+        int P = 1;
+        
+        StringBuilder sb = new StringBuilder();
+        
+        for (int i = 0; i < T; i++) {
             int C = Integer.parseInt(br.readLine());
+            sb.append(C / Q).append(" ");
+            C %= Q;
+            sb.append(C / D).append(" ");
+            C %= D;
+            sb.append(C / N).append(" ");
+            C %= N;
+            sb.append(C / P).append("\n");  
             
-            int Q = C / 25;
-            int D = (C % 25) / 10;
-            int N = ((C % 25) % 10) / 5;
-            int P = ((C % 25) % 10) % 5;
-            
-            System.out.println(Q + " " + D + " " + N + " " + P);
+            System.out.print(sb.toString());
+            sb.setLength(0); // StringBuilder 초기화
         }
     }
 }
