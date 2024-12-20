@@ -9,17 +9,23 @@ public class Main {
         int N = Integer.parseInt(br.readLine());
         int i = 2;
         
-        if(N == 1){
+        // N이 1인 경우
+        if (N == 1) {
             return;
-        } else {
-            while(N > 1){
-                if(N % i == 0){
-                    System.out.println(i);
-                    N = N / i;
-                } else {
-                    i++;
-                }
+        }
+
+        while (i * i <= N) { // 나누는 수의 범위를 제곱근까지 제한
+            if (N % i == 0) { 
+                System.out.println(i); 
+                N /= i; 
+            } else {
+                i++; // 나누어떨어지지 않으면 다음 숫자로 이동
             }
+        }
+
+        // 마지막으로 남은 N이 1보다 크다면 소수
+        if (N > 1) {
+            System.out.println(N);
         }
         
     }
