@@ -17,7 +17,6 @@ public class Main {
             for(int y=-999; y<=999; y++){
                 if (a*x + b*y == c && d*x + e*y == f){
                     System.out.println(x + " " + y);
-                    break;
                 }
             }
         }
