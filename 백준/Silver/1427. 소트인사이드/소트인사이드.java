@@ -4,22 +4,16 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));    
-        StringBuilder sb = new StringBuilder();
         
-        String str = br.readLine();
-        char[] ch = new char[str.length()];
+        // 입력받은 숫자를 문자열로 저장
+        char[] arr = br.readLine().toCharArray();
         
-        for(int i=0; i<str.length(); i++){
-            ch[i] = str.charAt(i);
-        }
+        // 오름차순 정렬
+        Arrays.sort(arr);
         
-        Arrays.sort(ch);
-        
-        for(int i=ch.length-1; i>=0; i--){
-            sb.append(ch[i]);
-        }
-        
-        System.out.print(sb);
+        // 내림차순 출력
+        StringBuilder sb = new StringBuilder(new String(arr));
+        System.out.println(sb.reverse());
         
     }
 }
