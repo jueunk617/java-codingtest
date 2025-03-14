@@ -15,15 +15,12 @@ public class Main {
             arr[i][1] = Integer.parseInt(st.nextToken());
         }
        
-        // 2차원 배열 정렬을 위한 익명 클래스 활용
-        Arrays.sort(arr, new Comparator<int[]>(){
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                if(o1[0] == o2[0]) { // 첫 번째 값이 같다면
-                    return o1[1] - o2[1]; // 두 번째 값 기준으로 오름차순 정렬
-                } else {
-                    return o1[0] - o2[0]; // 첫 번째 값 기준
-                }
+        // 2차원 배열 정렬을 위한 Comparator 람다식 활용
+        Arrays.sort(arr, (o1, o2) -> {
+            if(o1[0] == o2[0]) { 
+                return o1[1] - o2[1]; 
+            } else {
+                return o1[0] - o2[0];
             }
         });
         
