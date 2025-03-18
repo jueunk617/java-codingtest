@@ -1,33 +1,50 @@
 import java.io.*;
 import java.util.*;
 
-// String[][] 사용
+// StringBuilder 배열 사용
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         
-        int N = Integer.parseInt(br.readLine());        
-        String[][] arr = new String[N][2];
+        int N = Integer.parseInt(br.readLine());
         
+        StringBuilder[] m = new StringBuilder[201]; // 나이의 범위 : 1 ~ 200
+        
+        for(int i=0; i<m.length; i++){ // StringBuilder 객체 생성
+            m[i] = new StringBuilder();
+        }
+                
         for(int i=0; i<N; i++){
             StringTokenizer st = new StringTokenizer(br.readLine(), " ");
-            arr[i][0] = st.nextToken(); // 나이
-            arr[i][1] = st.nextToken(); // 이름
+            int age = Integer.parseInt(st.nextToken()); // 나이
+            String name = st.nextToken(); // 이름
+            
+            // 카운팅 정렬 : 나이를 index로
+            m[age].append(age).append(' ').append(name).append('\n');
         }
         
-        Arrays.sort(arr, new Comparator<String[]>() {
-            @Override
-            public int compare(String[] s1, String[] s2){
-                return Integer.parseInt(s1[0]) - Integer.parseInt(s2[0]); // 나이순 정렬
-            }
-        });
-        
         StringBuilder sb = new StringBuilder();
-        for(int i=0; i<N; i++) {
-            sb.append(arr[i][0]).append(' ').append(arr[i][1]).append('\n');
+        for(StringBuilder val : m) {
+            sb.append(val); 
         }
         
         System.out.print(sb);
         
+    }
+    
+    // 멤버 객체
+    public static class Member {
+        int age;
+        String name;
+        
+        public Member(int age, String name){
+            this.age = age;
+            this.name = name;
+        }
+        
+        @Override
+        public String toString(){
+            return age + " " + name + "\n";
+        }
     }
 }
