@@ -31,20 +31,4 @@ public class Main {
         System.out.print(sb);
         
     }
-    
-    // 멤버 객체
-    public static class Member {
-        int age;
-        String name;
-        
-        public Member(int age, String name){
-            this.age = age;
-            this.name = name;
-        }
-        
-        @Override
-        public String toString(){
-            return age + " " + name + "\n";
-        }
-    }
 }
