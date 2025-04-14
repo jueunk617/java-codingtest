@@ -13,7 +13,7 @@ public class Main {
     }
     
     public static long lcm(long a, long b) {
-        return a*b / gcd(a, b);
+        return a * (b / gcd(a, b)); // 오버플로우 방지
     }
     
     public static void main(String[] args) throws IOException {
