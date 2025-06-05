@@ -1,13 +1,10 @@
 class Solution {
     public String solution(String s) {
-        StringBuilder sb = new StringBuilder();
+        // substring() 활용 풀이
+        int mid = s.length() / 2;
         
-        if (s.length() % 2 == 0) {
-            sb.append(s.charAt(s.length() / 2 - 1)).append(s.charAt(s.length() / 2));
-        } else {
-            sb.append(s.charAt(s.length() / 2));
-        }
-        
-        return sb.toString();
+        return (s.length() % 2 == 0)
+            ? s.substring(mid - 1, mid + 1) // 짝수
+            : s.substring(mid, mid + 1); // 홀수
     }
 }
