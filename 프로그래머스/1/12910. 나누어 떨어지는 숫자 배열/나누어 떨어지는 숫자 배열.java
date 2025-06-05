@@ -2,22 +2,12 @@ import java.util.*;
 
 class Solution {
     public int[] solution(int[] arr, int divisor) {
-        ArrayList<Integer> list = new ArrayList<>();
+        // stream을 이용한 풀이
+        int[] result = Arrays.stream(arr)
+                .filter(n -> n % divisor == 0)
+                .sorted()
+                .toArray();
         
-        for (int i : arr) {
-            if (i % divisor == 0) list.add(i);
-        }
-        
-        if(list.size() == 0) return new int[]{-1}; // 예외처리
-        
-        Collections.sort(list); // 오름차순 정렬
-        
-        int[] answer = new int[list.size()];
-        
-        for (int i = 0; i < list.size(); i++) {
-            answer[i] = list.get(i);
-        }
-        
-        return answer;
+        return result.length == 0 ? new int[]{-1} : result;
     }
 }
